@@ -1,0 +1,9 @@
+## Release Notes
+
+Click on current version to view source code on GitHub.
+
+<br>
+
+### [v1.0](https://www.github.com/jeff-wagner/fairbanksCBC) (2025-12-10)
+
+> Initial release

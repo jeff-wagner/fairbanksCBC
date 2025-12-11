@@ -1,0 +1,25 @@
+/* Get a fancy font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Change body text to imported font */
+p {
+  font-family: 'Inter';
+  font-size: 18px;
+}
+
+/* Change sidebar text to imported font */
+.main-sidebar {
+  font-family: 'Inter';
+  font-size: 18px;
+}
+
+/* Change selectize text to imported font */
+.selectize-input {
+  font-family: 'Inter';
+  font-size: 16px;
+}
+
+.control-label {
+  font-family: 'Inter';
+  font-size: 18px;
+}

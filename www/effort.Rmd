@@ -1,0 +1,6 @@
+## Search Effort
+
+In this section you can explore a variety of measures of annual observer search effort, including distance, time searched, and participant metrics.
+
+Choose a metric from the drop-down menu below to view an interactive graph of annual effort. Move the cursor over a point to view raw data values for each year. Note that data for some years may be incomplete or missing. 
+<br><br>

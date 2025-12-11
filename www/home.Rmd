@@ -1,0 +1,23 @@
+## Welcome to the Fairbanks Christmas Bird Count Data Portal!
+
+<br>
+
+<div style="text-align: center;">
+
+![Black-capped chickadee on snowy branch](https://www.fws.gov/sites/default/files/styles/scale_width_1200/public/2021-12/chickadee2.jpg.webp?itok=9O10kqJU){width="45%"}
+
+<p style="font-size: 14px;"><em>Lisa Hupp/USFWS</em></p>
+</div>
+
+
+
+The <i> Fairbanks CBC Data Portal</i> is an app that let you visualize the Arctic Audubon Society's <a href="https://www.arcticaudubon.org/christmas-bird-count-1" target="_blank"> Annual Fairbanks Christmas Bird Count</a>. The Fairbanks Christmas Bird Count is part of the Annual Christmas Bird Count, a nation-wide winter tradition organized by the National Audubon Society throughout the American hemisphere. <br><br> From the left navigation panel you can explore the data and graphs of annual species counts, participant search effort, and more. <br><br> The web app was built with <a href="https://shiny.rstudio.com/" target="_blank"> shiny</a>. Version information and source code can be found in the
+<a href="#" class="tab-link" data-tab="releases">Release Notes</a> tab.
+
+<script>
+$(document).on('click', '.tab-link', function(e) {
+  e.preventDefault();
+  var tab = $(this).data('tab');
+  $('a[data-value="' + tab + '"]').click();
+});
+</script>
