@@ -4,6 +4,23 @@ Click on current version to view source code on GitHub.
 
 <br>
 
-### [v1.0](https://www.github.com/jeff-wagner/fairbanksCBC) (2025-12-10)
+### [v1.1](https://www.github.com/jeff-wagner/fairbanksCBC) (2025-12-18)
+
+> Added option for graphing observations per survey hour to the <a href="#" class="tab-link" data-tab="obs">Species Observations</a> tab
+> 
+> 
+> Updated Google Analytics
+
+<br>
+
+### [v1.0](https://github.com/jeff-wagner/fairbanksCBC/tree/2df2e0ab976277384a6d4d46524b291d35f8721f) (2025-12-10)
 
 > Initial release
+
+<script>
+$(document).on('click', '.tab-link', function(e) {
+  e.preventDefault();
+  var tab = $(this).data('tab');
+  $('a[data-value="' + tab + '"]').click();
+});
+</script>
