@@ -1,4 +1,8 @@
 ## Species Observations
 
-Choose a species from the drop-down menu below to view an interactive graph of annual species counts and trends over time. Move the cursor over a point to view raw data values for each year.
+Choose a species from the left drop-down menu below to view an interactive graph of annual species counts and trends over time. Move the cursor over a point to view the numerical values for each point. 
+
+<br>
+
+To the right, you may select the type of data you would like to graph — raw counts or count per survey hour. Since the start of the CBC in Fairbanks, there has been a considerable increase in the number of volunteers. As search effort increases, we would also expect to see an increase in the number of bird observations over time, thereby making trends in the raw counts alone potentially misleading. The "Count/Survey Hour" metric addresses this in a simple way by dividing the raw counts by the total number of survey hours, giving a more accurate (though still imperfect) picture of species trends.
 <br><br>
