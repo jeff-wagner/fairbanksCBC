@@ -8,6 +8,7 @@
 
 library(shiny)
 library(shinydashboard)
+library(shinydashboardPlus)
 library(shinycssloaders)
 library(markdown)
 library(bslib)
@@ -96,11 +97,12 @@ ui <- dashboardPage(
         "</table>",
         "<br>")),
       HTML(paste0(
+        "<div style='position: absolute; bottom: 10px; width: 100%; text-align: center;'>",
         "<script>",
         "var today = new Date();",
         "var yyyy = today.getFullYear();",
         "</script>",
-        "<p style = 'text-align: center;'> Jeff Wagner - <script>document.write(yyyy);</script></small></p>")
+        "<p style = 'margin: 0;'><small> Jeff Wagner - <script>document.write(yyyy);</script></small></p>")
       )
     )
   ),
