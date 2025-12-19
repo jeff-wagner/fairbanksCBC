@@ -4,6 +4,7 @@ Click on current version to view source code on GitHub.
 
 <br>
 
+
 ### [v1.1](https://www.github.com/jeff-wagner/fairbanksCBC) (2025-12-18)
 
 > Added option for graphing observations per survey hour to the <a href="#" class="tab-link" data-tab="obs">Species Observations</a> tab
