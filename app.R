@@ -141,7 +141,7 @@ ui <- dashboardPage(
                                           selectize = TRUE))
                        ),
               column(12, plotlyOutput("cbcPlot") %>% shinycssloaders::withSpinner(color = "green"),
-                     uiOutput("redPointNote"), uiOutput("redpollNote"), uiOutput("effortNote"))
+                     uiOutput("redPointNote"), uiOutput("redpollNote"), uiOutput("obseffortNote"))
               ),
               
       tabItem(tabName = "effort",
@@ -152,7 +152,8 @@ ui <- dashboardPage(
                                           selected = NULL,
                                           multiple = FALSE,
                                           selectize = TRUE))),
-              column(12, plotlyOutput("effortPlot") %>% shinycssloaders::withSpinner(color = "green"))
+              column(12, plotlyOutput("effortPlot") %>% shinycssloaders::withSpinner(color = "green"),
+                     uiOutput("effortNote"))
       ),
       tabItem(tabName = "releases",
               includeMarkdown("www/releases.Rmd")
@@ -183,7 +184,7 @@ server <- function(input, output, session) {
           y_max <- max(species_data$Count_Plot, na.rm = TRUE)
           
           if (y_max == 0) {
-            y_min <- -0.1  # or some small fixed value
+            y_min <- -0.05  # or some small fixed value
             y_max <- 0.5   # small positive value to create visible range
           } else {
             y_min <- -0.05 * y_max
@@ -232,7 +233,7 @@ server <- function(input, output, session) {
           y_max <- max(species_data$Count_Plot, na.rm = TRUE)
           
           if (y_max == 0) {
-            y_min <- -0.1  # or some small fixed value
+            y_min <- -0.05  # or some small fixed value
             y_max <- 0.5   # small positive value to create visible range
           } else {
             y_min <- -0.05 * y_max
@@ -265,7 +266,7 @@ server <- function(input, output, session) {
           y_max <- max(species_data$Count_Plot, na.rm = TRUE)
           
           if (y_max == 0) {
-            y_min <- -0.1  # or some small fixed value
+            y_min <- -0.05  # or some small fixed value
             y_max <- 0.5   # small positive value to create visible range
           } else {
             y_min <- -0.05 * y_max
@@ -317,7 +318,7 @@ server <- function(input, output, session) {
           y_max <- max(species_data$Count_Plot, na.rm = TRUE)
           
           if (y_max == 0) {
-            y_min <- -0.1  # or some small fixed value
+            y_min <- -0.05  # or some small fixed value
             y_max <- 0.5   # small positive value to create visible range
           } else {
             y_min <- -0.05 * y_max
@@ -367,7 +368,7 @@ server <- function(input, output, session) {
     y_max <- max(effort_data$Value, na.rm = TRUE)
     
     if (y_max == 0) {
-      y_min <- -0.1  # or some small fixed value
+      y_min <- -0.05  # or some small fixed value
       y_max <- 0.5   # small positive value to create visible range
     } else {
       y_min <- -0.05 * y_max
@@ -376,18 +377,6 @@ server <- function(input, output, session) {
     
     # Create interactive plot
     suppressWarnings({
-      plot_ly(effort_data, x = ~Year, y = ~Value, type = 'scatter', mode = 'lines+markers',
-              marker = list(size = 8, color = '#1f77b4'),
-              line = list(color = 'grey')) %>%
-        layout(title = list(text = paste("Annual Search Effort:", input$effort_type),
-                            font = list(family = "Arial Black"),
-                            xanchor = "center", yanchor = "top",
-                            pad = list(t = 1)),
-               xaxis = list(title = "Year", range = c(min(effort_data$Year), max(effort_data$Year))),
-               yaxis = list(title = paste(input$effort_type), range = c(-0.05, max(effort_data$Value, na.rm = TRUE) +
-                                                                          max(effort_data$Value, na.rm = TRUE)*0.1)),
-               showlegend = FALSE)
-      
       plot_ly(type = 'scatter', mode = 'markers') %>% 
         add_trace(data = effort_data,
                   x = ~Year,
@@ -407,7 +396,7 @@ server <- function(input, output, session) {
                             font = list(family = "Arial Black"),
                             xanchor = "center", yanchor = "top",
                             pad = list(t = 1)),
-               xaxis = list(title = "Year", range = c(min(effort_data$Year), max(effort_data$Year))),
+               xaxis = list(title = "Year", range = c(min(effort_data$Year)-2, max(effort_data$Year)+2)),
                yaxis = list(title = paste(input$effort_type), range = c(y_min, y_max)),
                showlegend = FALSE)
     })
@@ -433,12 +422,16 @@ server <- function(input, output, session) {
     }
   })
   
-  output$effortNote <- renderUI({
+  output$obseffortNote <- renderUI({
     if (input$data_type == "Count/Survey Hours") {
       tags$p("Unfilled points denote years search effort data is missing.")
     } else {
       NULL
     }
+  })
+  
+  output$effortNote <- renderUI({
+      tags$p("Unfilled points denote years search effort data is missing.")
   })
   
   observeEvent(input$link_to_releases, {
